@@ -7,11 +7,9 @@ import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import java.net.http.HttpResponse;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -30,10 +28,18 @@ public class UserController {
             @ApiImplicitParam(name = "password", value = "密码", defaultValue = "123456", required = true)
     })
     @GetMapping("/login")
-    public User login(String username, String password) {
+    public Map<String, Object> login(@RequestParam("username") String username, @RequestParam("password") String password) {
+        HashMap<String, Object> map = new HashMap<>();
         User user = new User();
         user.setUsername(username);
         user.setPassword(password);
-        return userService.login(user);
+        User login = userService.login(user);
+        if (login != null) {
+            map.put("code", "200");
+            map.put("user", login);
+        } else {
+            map.put("code", "300");
+        }
+        return map;
     }
 }
