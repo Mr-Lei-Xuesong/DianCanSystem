@@ -5,13 +5,13 @@
 <mapper namespace="com.demo.mapper.UserMapper">
 
     <!--根据id查询用户-->
-    <select id="FindUserById" parameterType="int" resultType="user">
+    <select id="FindUserById" parameterType="user" resultType="user">
          select  * from user where  id = #{id}
     </select>
 
     <!--登录-->
-    <select id="login" parameterType="String" resultType="user">
-        select * from user where username=#{username}
+    <select id="login" parameterType="user" resultType="user">
+        select * from user where username=#{username} and password=#{password}
     </select>
 
     <!--增加用户-->

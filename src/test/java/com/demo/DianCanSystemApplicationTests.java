@@ -13,7 +13,10 @@ class DianCanSystemApplicationTests {
 
     @Test
     void contextLoads() {
-        User login = userService.login("admin");
+        User user = new User();
+        user.setUsername("admin");
+        user.setPassword("123456");
+        User login = userService.login(user);
         System.out.println(login);
     }
 

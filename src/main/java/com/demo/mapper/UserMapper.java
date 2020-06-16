@@ -11,7 +11,7 @@ public interface UserMapper {
     User FindUserById(Integer id);
 
     //登录
-    User login(String username);
+    User login(User user);
 
     //增加用户
     int AddUser(User user);

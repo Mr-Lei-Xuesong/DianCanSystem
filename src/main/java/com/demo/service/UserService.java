@@ -14,8 +14,8 @@ public class UserService {
         return userMapper.FindUserById(id);
     }
 
-    public User login(String username) {
-        return userMapper.login(username);
+    public User login(User user) {
+        return userMapper.login(user);
     }
 
     public int AddUser(User user) {
