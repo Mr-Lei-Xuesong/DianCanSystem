@@ -1,5 +1,6 @@
 package com.demo.entity;
 
+
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
@@ -23,5 +24,6 @@ public class User {
   private String assess;
   @ApiModelProperty("订单")
   private String order;
+
 
 }
