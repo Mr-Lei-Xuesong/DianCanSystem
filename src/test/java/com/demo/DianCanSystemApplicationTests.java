@@ -23,11 +23,9 @@ class DianCanSystemApplicationTests {
 
     @Test
     void contextLoads() {
-        User user = new User();
-        user.setUsername("admin");
-        user.setPassword("123456");
-        User login = userService.login(user);
-        System.out.println(login);
+        List<Bus> buses = busService.FindBusAll();
+        System.out.println(buses);
+
     }
 
     @Test

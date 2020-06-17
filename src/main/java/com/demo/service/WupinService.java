@@ -12,6 +12,8 @@ public class WupinService {
     @Autowired
     WupinMapper wupinMapper;
 
+
+
     public Wupin FindWupinById(Integer id) {
         return wupinMapper.FindWupinById(id);
     }
@@ -31,4 +33,6 @@ public class WupinService {
     public int DeleteWupinById(Integer id) {
         return wupinMapper.DeleteWupinById(id);
     }
+
+
 }

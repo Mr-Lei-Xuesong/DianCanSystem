@@ -9,7 +9,9 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Api(tags = "用户管理接口")
@@ -24,20 +26,18 @@ public class UserController {
             @ApiImplicitParam(name = "username", value = "用户名", defaultValue = "admin", required = true),
             @ApiImplicitParam(name = "password", value = "密码", defaultValue = "123456", required = true)
     })
-    @GetMapping("/login")
-    public Map<String, Object> login(@RequestParam("username") String username, @RequestParam("password") String password) {
-        HashMap<String, Object> map = new HashMap<>();
+    @RequestMapping("/login")
+    public HashMap<String,Object> login(@RequestParam("username") String username, @RequestParam("password") String password) {
         User user = new User();
         user.setUsername(username);
         user.setPassword(password);
-        User login = userService.login(user);
-        if (login != null) {
-            map.put("code", "200");
-            map.put("user", login);
-        } else {
-            map.put("code", "300");
+        User login =userService.login(user);
+        HashMap<String,Object> map = new HashMap<>();
+        if(user!=null){
+               map.put("code","200");
+        }else{
+               map.put("code","404");
         }
         return map;
     }
-
 }
