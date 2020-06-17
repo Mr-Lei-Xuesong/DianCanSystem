@@ -22,5 +22,7 @@ public class Wupin {
     private String des;
     @ApiModelProperty("商品数量")
     private Integer num;
+    @ApiModelProperty("对应商家Id")
+    private Integer bid;
 
 }

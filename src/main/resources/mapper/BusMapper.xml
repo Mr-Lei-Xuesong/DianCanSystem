@@ -6,16 +6,31 @@
     <!--查询所有-->
     <select id="FindBusAll" resultType="bus">
         select * from bus
-
     </select>
 
     <!--根据名称模糊查询所有-->
     <select id="FindBusByNameLike" parameterType="String" resultType="bus">
-
+        select * from bus where sname like "%"#{sname}"%"
     </select>
 
     <!--根据名称查询商家-->
-    <select id="FindBusByName" parameterType="String" resultType="bus">
-
+    <select id="FindBusByName" parameterType="String" resultMap="BusAndWUpin">
+        SELECT b.sid bsid,b.sname bsname,b.sxiao bsxiao,b.sping bsping,b.spic bspic,b.sdes bsdes,w.id wid,w.price wprice,w.name wname,w.des wdes,w.num wnum,w.bid wbid FROM bus b,wupin w WHERE b.sid=w.bid and b.sname=#{name}
     </select>
+    <resultMap id="BusAndWUpin" type="Bus">
+        <result property="sid" column="bsid"/>
+        <result property="sname" column="bsname"/>
+        <result property="sxiao" column="bsxiao"/>
+        <result property="sping" column="bsping"/>
+        <result property="spic" column="bspic"/>
+        <result property="sdes" column="bsdes"/>
+        <collection property="wupins" ofType="Wupin">
+            <result property="id" column="wid"/>
+            <result property="price" column="wprice"/>
+            <result property="name" column="wname"/>
+            <result property="des" column="wdes"/>
+            <result property="num" column="wnum"/>
+            <result property="bid" column="wbid"/>
+        </collection>
+    </resultMap>
 </mapper>

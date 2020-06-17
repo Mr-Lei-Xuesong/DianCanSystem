@@ -1,7 +1,9 @@
 package com.demo;
 
+import com.demo.entity.Bus;
 import com.demo.entity.User;
 import com.demo.entity.Wupin;
+import com.demo.service.BusService;
 import com.demo.service.UserService;
 import com.demo.service.WupinService;
 import org.junit.jupiter.api.Test;
@@ -16,6 +18,8 @@ class DianCanSystemApplicationTests {
     UserService userService;
     @Autowired
     WupinService wupinService;
+    @Autowired
+    BusService busService;
 
     @Test
     void contextLoads() {
@@ -37,5 +41,12 @@ class DianCanSystemApplicationTests {
         wupin.setNum(8);
         wupinService.AddWupin(wupin);
 //        System.out.println(wupin);
+    }
+
+    @Test
+    void testBusService(){
+//        List<Bus> list = busService.FindBusByNameLike("德");
+        Bus byName = busService.FindBusByName("肯德基");
+        System.out.println(byName);
     }
 }
