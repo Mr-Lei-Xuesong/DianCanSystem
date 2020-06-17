@@ -46,7 +46,7 @@ class DianCanSystemApplicationTests {
     @Test
     void testBusService(){
 //        List<Bus> list = busService.FindBusByNameLike("德");
-        Bus byName = busService.FindBusByName("肯德基");
+        Bus byName = busService.FindBusByName("麦当劳");
         System.out.println(byName);
     }
 }

@@ -16,6 +16,8 @@ public class Wupin {
     private Integer id;
     @ApiModelProperty("商品价格")
     private double price;
+    @ApiModelProperty("商品图片")
+    private String pic;
     @ApiModelProperty("商品名称")
     private String name;
     @ApiModelProperty("商品描述")
