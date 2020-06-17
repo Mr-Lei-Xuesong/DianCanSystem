@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.demo.mapper.BusMapper">
+    <!--查询所有-->
+    <select id="FindBusAll" resultType="bus">
+        select * from bus
+
+    </select>
+
+    <!--根据名称模糊查询所有-->
+    <select id="FindBusByNameLike" parameterType="String" resultType="bus">
+
+    </select>
+
+    <!--根据名称查询商家-->
+    <select id="FindBusByName" parameterType="String" resultType="bus">
+
+    </select>
+</mapper>

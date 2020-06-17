@@ -21,6 +21,6 @@ public class Wupin {
     @ApiModelProperty("商品描述")
     private String des;
     @ApiModelProperty("商品数量")
-    private long num;
+    private Integer num;
 
 }
