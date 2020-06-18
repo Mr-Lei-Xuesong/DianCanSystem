@@ -15,7 +15,7 @@
 
     <!--根据名称查询商家-->
     <select id="FindBusByName" parameterType="String" resultMap="BusAndWUpin">
-        SELECT b.sid bsid,b.sname bsname,b.sxiao bsxiao,b.sping bsping,b.spic bspic,b.sdes bsdes,w.id wid,w.price wprice,w.name wname,w.des wdes,w.num wnum,w.bid wbid FROM bus b,wupin w WHERE b.sid=w.bid and b.sname=#{name}
+        SELECT b.sid bsid,b.sname bsname,b.sxiao bsxiao,b.sping bsping,b.spic bspic,b.sdes bsdes,w.id wid,w.price wprice,w.pic wpic,w.name wname,w.des wdes,w.num wnum,w.bid wbid FROM bus b,wupin w WHERE b.sid=w.bid and b.sname=#{name}
     </select>
     <resultMap id="BusAndWUpin" type="Bus">
         <result property="sid" column="bsid"/>
@@ -27,6 +27,7 @@
         <collection property="wupins" ofType="Wupin">
             <result property="id" column="wid"/>
             <result property="price" column="wprice"/>
+            <result property="pic" column="wpic"/>
             <result property="name" column="wname"/>
             <result property="des" column="wdes"/>
             <result property="num" column="wnum"/>
