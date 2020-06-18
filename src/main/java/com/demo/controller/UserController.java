@@ -26,7 +26,7 @@ public class UserController {
             @ApiImplicitParam(name = "username", value = "用户名", defaultValue = "admin", required = true),
             @ApiImplicitParam(name = "password", value = "密码", defaultValue = "123456", required = true)
     })
-    @RequestMapping("/login")
+    @PostMapping("/login")
     public HashMap<String,Object> login(@RequestParam("username") String username, @RequestParam("password") String password) {
         User user = new User();
         user.setUsername(username);
@@ -35,6 +35,7 @@ public class UserController {
         HashMap<String,Object> map = new HashMap<>();
         if(user!=null){
                map.put("code","200");
+               map.put("user",login);
         }else{
                map.put("code","404");
         }
