@@ -7,10 +7,7 @@ import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -29,7 +26,7 @@ public class HomeController {
      *
      * @return 返回页面所需数据
      */
-    @RequestMapping("/init")
+    @PostMapping("/init")
     @ApiOperation("用户初始化数据")
     public HashMap<String, Object> init() {
         ArrayList<String> pic = new ArrayList<>();  //首页轮播图
@@ -49,7 +46,7 @@ public class HomeController {
      * @param busname 商家名称
      * @return 所有信息
      */
-    @RequestMapping("/diancan")
+    @PostMapping("/diancan")
     @ApiOperation("获取商家信息以及商家视频的信息")
     @ApiImplicitParams({
             @ApiImplicitParam(name = "busname", value = "商家名", required = true)
