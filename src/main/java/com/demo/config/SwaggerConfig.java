@@ -15,7 +15,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableSwagger2
 public class SwaggerConfig {
     @Bean
-    public Docket createRestApi(){
+    public Docket createRestApi() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(apiInfo())
                 .pathMapping("/")
@@ -25,10 +25,10 @@ public class SwaggerConfig {
                 .build();
     }
 
-    private ApiInfo apiInfo(){
+    private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
                 .title("点餐系统")
-                .contact(new Contact("四组全体成员","",""))
+                .contact(new Contact("四组全体成员", "", ""))
                 .version("1.0")
                 .description("接口文档信息")
                 .build();

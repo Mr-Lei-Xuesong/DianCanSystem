@@ -26,6 +26,7 @@ public class HomeController {
 
     /**
      * 主页初始化所有数据
+     *
      * @return
      */
     @PostMapping("/init")
@@ -43,19 +44,20 @@ public class HomeController {
     }
 
     /**
-     * 返回商品信息和商家的所有食品信息
+     * 返回商品信息和商家的所有商品信息
+     *
      * @param busname
      * @return
      */
     @PostMapping("/diancan")
-    @ApiOperation("获取商家信息以及商家视频的信息")
+    @ApiOperation("获取商家信息以及商家商品的信息")
     @ApiImplicitParams({
             @ApiImplicitParam(name = "busname", value = "商家名", required = true)
     })
-    public  HashMap<String,Object> diancan(@RequestParam("busname") String busname){
+    public HashMap<String, Object> diancan(@RequestParam("busname") String busname) {
         Bus bus = busService.FindBusByName(busname);
-        HashMap<String,Object> map = new HashMap<>();
-        map.put("businfo",bus);
+        HashMap<String, Object> map = new HashMap<>();
+        map.put("businfo", bus);
         return map;
     }
 }

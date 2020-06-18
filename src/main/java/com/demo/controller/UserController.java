@@ -27,17 +27,17 @@ public class UserController {
             @ApiImplicitParam(name = "password", value = "密码", defaultValue = "123456", required = true)
     })
     @PostMapping("/login")
-    public HashMap<String,Object> login(@RequestParam("username") String username, @RequestParam("password") String password) {
+    public HashMap<String, Object> login(@RequestParam("username") String username, @RequestParam("password") String password) {
         User user = new User();
         user.setUsername(username);
         user.setPassword(password);
-        User login =userService.login(user);
-        HashMap<String,Object> map = new HashMap<>();
-        if(user!=null){
-               map.put("code","200");
-               map.put("user",login);
-        }else{
-               map.put("code","404");
+        User login = userService.login(user);
+        HashMap<String, Object> map = new HashMap<>();
+        if (user != null) {
+            map.put("code", "200");
+            map.put("user", login);
+        } else {
+            map.put("code", "404");
         }
         return map;
     }
