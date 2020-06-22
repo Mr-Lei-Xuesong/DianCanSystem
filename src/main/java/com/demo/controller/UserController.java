@@ -33,7 +33,7 @@ public class UserController {
         user.setPassword(password);
         User login = userService.login(user);
         HashMap<String, Object> map = new HashMap<>();
-        if (user != null) {
+        if (login != null) {
             map.put("code", "200");
             map.put("user", login);
         } else {
