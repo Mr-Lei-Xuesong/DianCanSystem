@@ -28,7 +28,7 @@ public class SwaggerConfig {
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
                 .title("点餐系统")
-                .contact(new Contact("四组全体成员", "", ""))
+                .contact(new Contact("四川职业技术学院", "", ""))
                 .version("1.0")
                 .description("接口文档信息")
                 .build();
